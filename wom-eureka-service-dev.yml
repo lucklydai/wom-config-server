@@ -1,0 +1,18 @@
+#单机
+spring:
+  application:
+    name: wom-eureka-service  #应用名称
+
+server:
+  port: 38080 #端口
+
+eureka:
+  server:
+    enable-self-preservation: false #开发阶段可以通过配置关闭自我保护模式
+  instance:
+    hostname: eureka-01 #实例主机名称
+  client:
+    fetch-registry: false       #表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
+    register-with-eureka: false #不要向注册中心注册自己
+    service-url:
+      defaultZone: http://eureka-01:38080/eureka/  #指定服务注册中心地址 这里直接指向了本服务
