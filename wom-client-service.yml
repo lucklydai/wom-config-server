@@ -1,1 +1,20 @@
 config: pro
+
+---
+server:
+  port: 48081
+spring:
+  profiles: client01
+...
+---
+server:
+  port: 48082
+spring:
+  profiles: client02
+...
+---
+server:
+  port: 48083
+spring:
+  profiles: client03
+...
