@@ -1,4 +1,4 @@
-config: uat
+config: dev
 
 ---
 server:
