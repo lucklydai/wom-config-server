@@ -1,4 +1,4 @@
-config: pro
+config: prod
 
 ---
 server:
