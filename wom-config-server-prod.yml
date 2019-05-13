@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: wom-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lucklydai/wom-config-server.git
+          # git用户名和密码 针对私有仓库而言需要填写
+          username: luckydai
+          password: dai5*4@66
+          # 搜索路径，即配置文件的目录，可配置多个，逗号分隔。默认为根目录
+          search-paths: wom-config-server
+          basedir: E:/code/config/wom-basedir
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://eureka-01:38081/eureka,http://eureka-02:38082/eureka,http://eureka-03:38083/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [refresh,info,health]
+---
+spring:
+  profiles: config01
+
+server:
+  port: 18086
+...
+---
+spring:
+  profiles: config02
+
+server:
+  port: 18087
+...
+---
+spring:
+  profiles: config03
+
+server:
+  port: 18088
+...
