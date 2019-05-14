@@ -1,2 +1,21 @@
 spring:
   profiles: dev
+  
+## 路由规则
+zuul:
+  routes:
+    #把 /client/* 的请求，转发到了 wom-client-server 服务，把 /feign/* 的请求，转发到了wom-feign-server
+    api-client:
+      path: /client-server/**
+      service-id: wom-client-server
+    api-feign:
+      path: /feign-server/**
+      service-id: wom-ribbon-server
+    ## 传统路由配置：不依赖服务发现。
+    myApi:
+      path: /myapi/**
+      url: http://localhost:48081
+    #forward模式 直接转发至zuul提供的rest服务mydemo->demo
+    myDemo:
+      path: /mydemo/**
+      url: forward:/demo  
