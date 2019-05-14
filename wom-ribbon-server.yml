@@ -1,0 +1,15 @@
+---
+spring:
+  profiles: ribbon01
+server:
+  port: 18081
+---
+spring:
+  profiles: ribbon02
+server:
+  port: 18082
+---
+spring:
+  profiles: ribbon03
+server:
+  port: 18083
